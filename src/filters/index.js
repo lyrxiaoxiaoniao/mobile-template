@@ -42,7 +42,7 @@ export function parseTime(time, cFormat) {
   };
   const timeStr = format.replace(/{(y|m|d|h|i|s|a)+}/g, (result, key) => {
     let value = formatObj[key];
-    if (key === 'a')
+    if (key === 'a') {
       return [
         '星期一',
         '星期二',
@@ -52,6 +52,7 @@ export function parseTime(time, cFormat) {
         '星期六',
         '星期日'
       ][value - 1];
+    }
     if (result.length > 0 && value < 10) {
       value = '0' + value;
     }
